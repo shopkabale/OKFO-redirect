@@ -6,12 +6,9 @@
 
     <title>Kabale Online is now OKFO</title>
 
-  <!-- CLEAN SEO (no heavy wording in UI) -->
-  <meta name="description" content="OKFO is Uganda’s trusted platform for local notices, jobs, services, alerts, and community updates. Formerly Kabale Online." />
+  <!-- SEO ONLY -->
+  <meta name="description" content="OKFO is Uganda’s trusted platform for local notices, jobs, services, alerts, and community updates. Evolved from Kabale Online." />
   <meta name="keywords" content="OKFO, Kabale Online, Uganda local notices, jobs in Uganda, community updates Uganda" />
-
-  <!-- Auto redirect -->
-  <meta http-equiv="refresh" content="6;url=https://okfo.kabaleonline.com" />
 
   <style>
     :root {
@@ -23,9 +20,7 @@
       --border: #E5E7EB;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -36,7 +31,7 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      overflow: hidden; /* 🔒 No scroll */
+      overflow: hidden;
     }
 
     .center {
@@ -54,16 +49,17 @@
       font-weight: 800;
       letter-spacing: 1px;
       color: var(--brand);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .tagline {
       font-size: 1rem;
       color: var(--text-muted);
+      max-width: 420px;
     }
 
     .cta {
-      margin-top: 26px;
+      margin-top: 28px;
       padding: 14px 28px;
       background: var(--brand);
       color: #fff;
@@ -76,6 +72,12 @@
     .cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+    }
+
+    .redirect-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
     }
 
     footer {
@@ -110,17 +112,39 @@
 
   <div class="center">
     <div class="logo">OKFO</div>
-    <div class="tagline">Kabale Online has evolved</div>
+    <div class="tagline">
+      Kabale Online has evolved into a trusted local notice platform for Uganda.
+    </div>
 
     <a href="https://okfo.kabaleonline.com" class="cta">
       Continue to OKFO
     </a>
   </div>
 
+  <!-- Countdown -->
+  <div class="redirect-note">
+    Auto redirecting in <span id="countdown">8</span>s
+  </div>
+
   <footer>
     <a href="https://okfo.kabaleonline.com/about">About OKFO</a>
     <a href="https://okfo.kabaleonline.com/faq">FAQs</a>
   </footer>
+
+  <script>
+    let seconds = 8;
+    const el = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      seconds--;
+      el.textContent = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = "https://okfo.kabaleonline.com";
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>
