@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kabale Online is now OKFO</title>
+  <meta name="description" content="Kabale Online has evolved into OKFO — a new platform for local notices, jobs, services, and community updates across Uganda." />
+
+  <!-- Auto redirect after 7 seconds -->
+  <meta http-equiv="refresh" content="7;url=https://okfo.kabaleonline.com" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0B1220;
+      color: #E5E7EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 560px;
+      padding: 24px;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #2563EB;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: #F9FAFB;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #9CA3AF;
+      margin-bottom: 26px;
+    }
+
+    .highlight {
+      color: #E5E7EB;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #2563EB;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .redirect-note {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      color: #6B7280;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">OKFO</div>
+
+    <h1 id="headline">Kabale Online has evolved</h1>
+
+    <p id="location-text">
+      Kabale Online is now part of <span class="highlight">OKFO</span> — a new platform
+      helping communities across Uganda discover local jobs, services,
+      alerts, and important updates.
+    </p>
+
+    <a href="https://okfo.kabaleonline.com" class="btn">
+      Continue to OKFO
+    </a>
+
+    <div class="redirect-note">
+      You’ll be redirected automatically in a few seconds…
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const headline = document.getElementById("headline");
+      const text = document.getElementById("location-text");
+
+      // Very light location hint (no GPS, no permission)
+      const locale = Intl.DateTimeFormat().resolvedOptions().locale || "";
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+
+      let locationName = "your area";
+
+      if (timeZone.includes("Kampala")) {
+        locationName = "Uganda";
+      }
+
+      // Optional district hints (best-effort, harmless)
+      if (locale.toLowerCase().includes("en-ug")) {
+        locationName = "Uganda";
+      }
+
+      headline.textContent = "Welcome! Things just got better.";
+
+      text.innerHTML = `
+        Kabale Online has evolved into <span class="highlight">OKFO</span>.
+        People in <span class="highlight">${locationName}</span> are now using OKFO
+        to find trusted local jobs, services, alerts, and community updates —
+        all in one place.
+      `;
+    })();
+  </script>
+
+</body>
+</html>
